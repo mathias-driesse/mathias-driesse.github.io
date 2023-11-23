@@ -275,7 +275,7 @@ scholar:
   last_name: [Einstein]
   first_name: [Albert, A.]
 
-  style: apa
+  style: nature
   locale: en
 
   source: /_bibliography/
