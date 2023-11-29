@@ -6,7 +6,7 @@ subtitle: <a href='https://qft.physik.hu-berlin.de/plefka-group/'>Affiliations</
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: Driesse_Mathias-SURF-Hsieh Lab-6214 (1).jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Office 1.219, IRIS Adlershof</p>
