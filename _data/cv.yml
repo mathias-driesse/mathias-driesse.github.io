@@ -2,18 +2,16 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Mathias Driesse
     - name: Languages
-      value: English, German
+      value: English, French, German
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: MPhys Theoretical Physics (First Class Honours)
+      institution: University of Edinburgh
+      year: 2023
       description:
         - Description 1.
         - Description 2.
