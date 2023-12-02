@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://qft.physik.hu-berlin.de/plefka-group/'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='https://qft.physik.hu-berlin.de/plefka-group/'>Humboldt Universität zu Berlin</a>.
 
 profile:
   align: right
