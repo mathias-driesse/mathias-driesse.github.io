@@ -2,8 +2,8 @@
 layout: profiles
 permalink: /people/
 title: people
-description: members of the lab or group
-nav: true
+description: members of the Plefka group I work with 
+nav: false
 nav_order: 6
 
 profiles:
