@@ -6,9 +6,14 @@
     - name: Languages
       value: English, French, German
 
+
+
 - title: Education
   type: time_table
   contents:
+    - title: PhD in Physics
+      institution: Humboldt University of Berlin
+      year: 2023 - 2027
     - title: MPhys Theoretical Physics (First Class Honours)
       institution: University of Edinburgh
       year: 2019 - 2023
@@ -23,57 +28,3 @@
         - Description 1.
         - Description 2.
 
-- title: Experience
-  type: time_table
-  contents:
-    - title: PhD Student in Physics
-      institution: Humboldt University of Berlin, Berlin, Germany
-      year: 2023 - present
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items: 
-        - Nobel Prize in Physics 
-        - Matteucci Medal
-    - year: 2029
-      items: 
-        - Max Planck Medal
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
-
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
