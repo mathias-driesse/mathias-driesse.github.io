@@ -11,17 +11,14 @@
   contents:
     - title: MPhys Theoretical Physics (First Class Honours)
       institution: University of Edinburgh
-      year: 2023
+      year: 2019 - 2023
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Master's Project: deriving the Reissner-Nordström metric from scattering amplitudes in quantum field theory under Prof. Donal O'Connell
+        - Relevant courses: Quantum Field Theory, General Relativity, Gauge Theories in Particle Physics, Advanced Statistical Physics
+        - Awards: Certificate of Merit for excellent performance, Edinburgh Award for Representing Students
+    - title: Exchange student
+      institution: California Institute of Technology, Pasadena, California, US
+      year: 2021 - 2022
       description:
         - Description 1.
         - Description 2.
@@ -29,9 +26,9 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: PhD Student in Physics
+      institution: Humboldt University of Berlin, Berlin, Germany
+      year: 2023 - present
       description:
         - Description 1.
         - Description 2.

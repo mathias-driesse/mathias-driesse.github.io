@@ -6,7 +6,7 @@ subtitle: <a href='https://qft.physik.hu-berlin.de/plefka-group/'>Humboldt Unive
 
 profile:
   align: right
-  image: Driesse_Mathias-SURF-Hsieh_Lab.jpg
+  image: IMG_1220-Enhanced-NR.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Office 1.219, IRIS Adlershof</p>
