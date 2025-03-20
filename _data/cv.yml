@@ -7,13 +7,17 @@
       value: English, French, German
 
 
-
 - title: Education
   type: time_table
   contents:
     - title: PhD in Physics
       institution: Humboldt University of Berlin
       year: 2023 - 2027
+      description:
+        - "Research Topic: High Precision Gravitational Wave Physics from a Worldline Quantum Field Theory"
+        - "Relevant courses: Scattering Amplitudes, String Theory"
+        - "Candidate Associate Member of Research Training Group 2575: Rethinking Quantum Field Theory"
+        - "Main author on 19 Mcore-h proposal at the supercomputer NHR@ZIB"
     - title: MPhys Theoretical Physics (First Class Honours)
       institution: University of Edinburgh
       year: 2019 - 2023
@@ -24,7 +28,26 @@
     - title: Exchange student
       institution: California Institute of Technology, Pasadena, California, US
       year: 2021 - 2022
+
+- title: Professional and Research Experience
+  type: time_table
+  contents:
+    - title: Summer Undergraduate Research Fellow
+      institution: California Institute of Technology
+      year: 2022
       description:
-        - Description 1.
-        - Description 2.
+        - Performed THz pump-probe time-domain spectroscopy on Mott insulators, handling lasers and vacuum devices and analyzing data
+        - Designed and constructed new THz time-domain spectroscopy equipment
+        - Simulated effects of Floquet engineering Kitaev material candidate $\alpha$-RuCl$_3$ using density functional theory
+        - Transfered tools developed for $\alpha$-RuCl$_3$ to analyze phonon eigenmodes and their effects in Mott insulators, in agreement with experimental results
+        - Evaluated feasibility of performing metamaterial-enhanced Floquet engineering
+    - title:
+      institution: CERN
+      year: 2021
+      description:
+        - Remote internship with ALPHA collaboration}
+        - Researched existing literature for methods on simulating low-energy positron beams}
+        - Developed simulations of longitudinal beam dynamics of positrons, extending existing models}
+        - Investigated beam bunching (focusing) and simulated practical implementations thereof, leading to a potential 10$\times$ improvement in positron transfer capabilities}
+        - Summarized research progress in final report [Longitudinal Dynamics of Positron Beams in the ALPHA Antihydrogen Experiment](http://cds.cern.ch/record/2779405)
 
