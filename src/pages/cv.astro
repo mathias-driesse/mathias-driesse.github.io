@@ -1,0 +1,138 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="CV · Mathias Driesse">
+  <h1>Curriculum vitae</h1>
+  <p style="color: var(--fg-muted); max-width: var(--measure);">
+    A short version. Drop a PDF into <code>public/cv.pdf</code> and uncomment
+    the link below to offer a download.
+  </p>
+  <!--
+  <p>
+    <a href="/cv.pdf">Download PDF →</a>
+  </p>
+  -->
+
+  <section class="cv-section">
+    <h2>Education</h2>
+
+    <div class="cv-entry">
+      <div class="cv-when">2023 – 2027</div>
+      <div class="cv-what">
+        <h3>PhD in Physics</h3>
+        <p class="place">
+          Humboldt-Universität zu Berlin · Plefka group
+        </p>
+        <ul>
+          <li>
+            Research topic: high-precision gravitational wave physics from a
+            worldline quantum field theory
+          </li>
+          <li>
+            Associate member, Research Training Group 2575 &mdash; Rethinking
+            Quantum Field Theory
+          </li>
+          <li>
+            Main author on 19 MCore-h compute proposal at the supercomputer
+            NHR@ZIB
+          </li>
+          <li>Coursework: scattering amplitudes, string theory</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-when">2019 – 2023</div>
+      <div class="cv-what">
+        <h3>MPhys Theoretical Physics, First Class Honours</h3>
+        <p class="place">University of Edinburgh</p>
+        <ul>
+          <li>
+            Master's project with Prof. Donal O'Connell: deriving the
+            Reissner&ndash;Nordstr&ouml;m metric from scattering amplitudes in
+            quantum field theory
+          </li>
+          <li>
+            Coursework: quantum field theory, general relativity, gauge
+            theories, advanced statistical physics
+          </li>
+          <li>
+            Awards: Certificate of Merit for excellent performance; Edinburgh
+            Award for Representing Students
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-when">2021 – 2022</div>
+      <div class="cv-what">
+        <h3>Exchange student</h3>
+        <p class="place">California Institute of Technology · Pasadena, CA</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <h2>Research experience</h2>
+
+    <div class="cv-entry">
+      <div class="cv-when">Summer 2022</div>
+      <div class="cv-what">
+        <h3>Summer Undergraduate Research Fellow</h3>
+        <p class="place">California Institute of Technology</p>
+        <ul>
+          <li>
+            Performed THz pump–probe time-domain spectroscopy on Mott
+            insulators, handling lasers and vacuum equipment and analyzing the
+            data
+          </li>
+          <li>Designed and constructed new THz time-domain spectroscopy equipment</li>
+          <li>
+            Simulated Floquet engineering of the Kitaev candidate
+            α-RuCl₃ using density functional theory
+          </li>
+          <li>
+            Transferred the tools to analyze phonon eigenmodes in Mott
+            insulators, in agreement with experimental results
+          </li>
+          <li>Evaluated feasibility of metamaterial-enhanced Floquet engineering</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-when">2021</div>
+      <div class="cv-what">
+        <h3>Research intern, ALPHA collaboration</h3>
+        <p class="place">CERN (remote)</p>
+        <ul>
+          <li>
+            Surveyed the literature on simulating low-energy positron beams
+          </li>
+          <li>
+            Developed simulations of the longitudinal dynamics of positrons,
+            extending existing models
+          </li>
+          <li>
+            Investigated beam bunching, with a practical implementation
+            yielding a potential 10× improvement in positron transfer
+          </li>
+          <li>
+            Final report:
+            <a href="http://cds.cern.ch/record/2779405">
+              Longitudinal Dynamics of Positron Beams in the ALPHA
+              Antihydrogen Experiment
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <h2>Languages</h2>
+    <p>English · French · German</p>
+  </section>
+</Base>

@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  pub: CollectionEntry<"publications">;
+}
+
+const { pub } = Astro.props;
+const { title, authors, venue, year, arxiv, doi, url, pdf } = pub.data;
+
+function formatAuthors(list: string[]) {
+  return list.map((a) => a.trim());
+}
+const authorList = formatAuthors(authors);
+const meIndex = authorList.findIndex((a) => /Driesse/.test(a));
+---
+
+<li class="pub-item">
+  <h3 class="pub-title">
+    {url ? <a href={url}>{title}</a> : title}
+  </h3>
+  <p class="pub-authors">
+    {
+      authorList.map((a, i) => (
+        <>
+          <span class={i === meIndex ? "me" : undefined}>{a}</span>
+          {i < authorList.length - 1 ? ", " : ""}
+        </>
+      ))
+    }
+  </p>
+  <div class="pub-meta">
+    {venue && <span>{venue}</span>}
+    <span>{year}</span>
+    {arxiv && <a href={`https://arxiv.org/abs/${arxiv}`}>arXiv:{arxiv}</a>}
+    {doi && !arxiv && <a href={`https://doi.org/${doi}`}>doi</a>}
+    {pdf && <a href={pdf}>pdf</a>}
+  </div>
+</li>

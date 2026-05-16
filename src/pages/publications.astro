@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import PublicationItem from "../components/PublicationItem.astro";
+
+const pubs = (await getCollection("publications")).sort((a, b) => {
+  const ay = a.data.year * 100 + (a.data.month ?? 0);
+  const by = b.data.year * 100 + (b.data.month ?? 0);
+  return by - ay;
+});
+
+// Group by year
+const byYear = new Map<number, typeof pubs>();
+for (const p of pubs) {
+  if (!byYear.has(p.data.year)) byYear.set(p.data.year, []);
+  byYear.get(p.data.year)!.push(p);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+---
+
+<Base title="Publications · Mathias Driesse">
+  <h1>Publications</h1>
+  <p style="color: var(--fg-muted); max-width: var(--measure);">
+    Preprints and journal articles, most recent first. The full author list is
+    shown for each entry.
+  </p>
+
+  {
+    years.map((year) => (
+      <section style="margin-top: 2.5rem;">
+        <h2 class="pub-year-group">{year}</h2>
+        <ul class="pub-list">
+          {byYear.get(year)!.map((p) => (
+            <PublicationItem pub={p} />
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Base>

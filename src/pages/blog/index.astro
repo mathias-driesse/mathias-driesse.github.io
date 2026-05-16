@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Base title="Blog · Mathias Driesse">
+  <h1>Blog</h1>
+  <p style="color: var(--fg-muted); max-width: var(--measure);">
+    Occasional explainers — usually trying to make a corner of my work
+    accessible without sacrificing too much of the math.
+  </p>
+
+  <ul class="post-list" style="margin-top: 2rem;">
+    {
+      posts.map((post) => (
+        <li class="post-item">
+          <h2 class="post-item-title">
+            <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          </h2>
+          <div class="post-item-meta">
+            {post.data.date.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              timeZone: "UTC",
+            })}
+          </div>
+          {post.data.description && (
+            <p class="post-item-desc">{post.data.description}</p>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</Base>

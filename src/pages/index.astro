@@ -1,0 +1,127 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import PublicationItem from "../components/PublicationItem.astro";
+
+const newsAll = (await getCollection("news")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const recentNews = newsAll.slice(0, 5);
+
+const pubsAll = await getCollection("publications");
+const selectedPubs = pubsAll
+  .filter((p) => p.data.selected)
+  .sort((a, b) => {
+    const ay = a.data.year * 100 + (a.data.month ?? 0);
+    const by = b.data.year * 100 + (b.data.month ?? 0);
+    return by - ay;
+  });
+
+const monthName = (m: number) =>
+  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][m - 1];
+
+const formatDate = (d: Date) =>
+  `${monthName(d.getUTCMonth() + 1)} ${d.getUTCFullYear()}`;
+
+// Pre-render news bodies
+const renderedNews = await Promise.all(
+  recentNews.map(async (n) => {
+    const { Content } = await render(n);
+    return { entry: n, Content };
+  }),
+);
+---
+
+<Base>
+  <section class="hero">
+    <div>
+      <h1>Mathias Driesse</h1>
+      <p class="affiliation">
+        PhD student, theoretical physics ·
+        <a href="https://qft.physik.hu-berlin.de/plefka-group/">
+          Plefka group, Humboldt-Universität zu Berlin
+        </a>
+      </p>
+
+      <p>
+        I work on the theoretical side of gravitational wave physics. More
+        concretely, I compute scattering events between two black holes using
+        techniques imported from quantum field theory, and extract the classical
+        limit to obtain analytical predictions for the post-Minkowskian
+        expansion.
+      </p>
+      <p>
+        Our tool of choice is <em>worldline quantum field theory</em>, which
+        makes the classical limit especially natural. A large part of the work
+        involves wrangling the Feynman integrals that appear &mdash; using
+        integration-by-parts identities, differential equations, and a healthy
+        amount of supercomputer time.
+      </p>
+    </div>
+
+    <div class="hero-photo placeholder">
+      add photo<br />to <code>public/</code>
+    </div>
+  </section>
+
+  <section class="section" id="news">
+    <div class="section-head">
+      <h2>News</h2>
+    </div>
+    <ul class="news-list">
+      {
+        renderedNews.map(({ entry, Content }) => (
+          <li class="news-item">
+            <div class="news-date">
+              {entry.data.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                timeZone: "UTC",
+              })}
+            </div>
+            <div class="news-body">
+              <Content />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section" id="selected-publications">
+    <div class="section-head">
+      <h2>Selected publications</h2>
+      <a href="/publications">All publications →</a>
+    </div>
+    <ul class="pub-list">
+      {selectedPubs.map((p) => <PublicationItem pub={p} />)}
+    </ul>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-head">
+      <h2>Contact</h2>
+    </div>
+    <dl class="contact-grid">
+      <dt>Email</dt>
+      <dd>
+        <a href="mailto:mathias.driesse@physik.hu-berlin.de"
+          >mathias.driesse@physik.hu-berlin.de</a
+        >
+      </dd>
+      <dt>Office</dt>
+      <dd>Office 1.219, IRIS Adlershof<br />Zum Großen Windkanal 2, 12489 Berlin</dd>
+      <dt>arXiv</dt>
+      <dd>
+        <a href="https://arxiv.org/a/driesse_m_1.html"
+          >arxiv.org/a/driesse_m_1</a
+        >
+      </dd>
+      <dt>ORCID</dt>
+      <dd>
+        <a href="https://orcid.org/">add your ORCID id here</a>
+      </dd>
+    </dl>
+  </section>
+</Base>
