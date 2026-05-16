@@ -20,14 +20,9 @@ const meIndex = authorList.findIndex((a) => /Driesse/.test(a));
     {url ? <a href={url}>{title}</a> : title}
   </h3>
   <p class="pub-authors">
-    {
-      authorList.map((a, i) => (
-        <>
-          <span class={i === meIndex ? "me" : undefined}>{a}</span>
-          {i < authorList.length - 1 ? ", " : ""}
-        </>
-      ))
-    }
+    {authorList.map((a, i) => (
+      <><span class={i === meIndex ? "me" : undefined}>{a}</span>{i < authorList.length - 1 ? ", " : ""}</>
+    ))}
   </p>
   <div class="pub-meta">
     {venue && <span>{venue}</span>}
