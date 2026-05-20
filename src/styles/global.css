@@ -275,8 +275,8 @@ main { padding: 3rem 0 6rem; }
   margin-bottom: 1.6em;
 }
 .hero-photo {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   border-radius: var(--radius);
   background: var(--bg-soft);
@@ -293,7 +293,12 @@ main { padding: 3rem 0 6rem; }
 
 @media (max-width: 640px) {
   .hero { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-photo { width: 140px; height: 140px; }
+  .hero-photo {
+    width: 200px;
+    height: 200px;
+    order: -1;
+    justify-self: center;
+  }
   .hero h1 { font-size: 2rem; }
 }
 
