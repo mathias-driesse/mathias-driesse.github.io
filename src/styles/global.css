@@ -322,7 +322,7 @@ main { padding: 3rem 0 6rem; }
 .news-list { list-style: none; padding: 0; margin: 0; max-width: none; }
 .news-item {
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 110px minmax(0, 1fr);
   gap: 1.5rem;
   padding: 0.8rem 0;
   border-bottom: 1px dotted var(--rule);
@@ -447,7 +447,7 @@ main { padding: 3rem 0 6rem; }
 }
 .cv-entry {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 130px minmax(0, 1fr);
   gap: 1.5rem;
   margin-bottom: 1.4rem;
 }
