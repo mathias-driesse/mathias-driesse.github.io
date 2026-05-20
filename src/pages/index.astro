@@ -6,7 +6,7 @@ import PublicationItem from "../components/PublicationItem.astro";
 const newsAll = (await getCollection("news")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
-const recentNews = newsAll.slice(0, 5);
+const recentNews = newsAll.slice(0, 3);
 
 const pubsAll = await getCollection("publications");
 const selectedPubs = pubsAll
@@ -67,6 +67,7 @@ const renderedNews = await Promise.all(
   <section class="section" id="news">
     <div class="section-head">
       <h2>News</h2>
+      <a href="/news">All news →</a>
     </div>
     <ul class="news-list">
       {
