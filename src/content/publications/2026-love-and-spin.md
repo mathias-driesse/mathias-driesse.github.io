@@ -6,7 +6,7 @@ authors:
     - "Kays Haddad"
     - "Gustav Uhre Jakobsen"
 year: 2026
-month: 1
+month: 2
 arxiv: "2602.06125"
 url: "https://arxiv.org/pdf/2602.06125"
 selected: true
