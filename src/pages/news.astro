@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const news = (await getCollection("news")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const rendered = await Promise.all(
+  news.map(async (n) => {
+    const { Content } = await render(n);
+    return { entry: n, Content };
+  }),
+);
+---
+
+<Base title="News · Mathias Driesse">
+  <h1>News</h1>
+  <p style="color: var(--fg-muted); max-width: var(--measure);">
+    Conferences, papers, and other research updates.
+  </p>
+
+  <ul class="news-list" style="margin-top: 2rem;">
+    {
+      rendered.map(({ entry, Content }) => (
+        <li class="news-item">
+          <div class="news-date">
+            {entry.data.date.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+              timeZone: "UTC",
+            })}
+          </div>
+          <div class="news-body">
+            <Content />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
