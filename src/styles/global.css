@@ -231,6 +231,15 @@ main { padding: 3rem 0 6rem; }
 .theme-toggle:hover { color: var(--fg); border-color: var(--fg-muted); }
 .theme-toggle svg { width: 16px; height: 16px; }
 
+@media (max-width: 640px) {
+  .nav {
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.9rem 1.5rem;
+  }
+}
+
 @media (max-width: 560px) {
   .nav-links { gap: 1rem; }
   .nav-links a { font-size: 0.9rem; }
