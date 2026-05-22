@@ -22,7 +22,7 @@ Writing it down as one optimized numba function of $x$, $y$, $z$, $t$ (the four 
 
 Unfortunately, ParaView doesn't natively support reading in arbitrary numpy arrays. I recommend the VTK format. You can convert it as follows:
 
-```
+```python
 import numpy as np
 import vtk
 from tqdm import tqdm
