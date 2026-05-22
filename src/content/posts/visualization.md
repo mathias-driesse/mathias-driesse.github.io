@@ -1,7 +1,7 @@
 ---
 title: "How to make a Nature cover with ParaView"
 date: 2026-05-20
-description: 
+description: "A step-by-step guide to how I created a picture that landed our article on the front cover of Nature"
 tags: [visualization, gravitational-waves, software]
 ---
 
