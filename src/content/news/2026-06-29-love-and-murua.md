@@ -1,0 +1,5 @@
+---
+date: 2026-06-29
+---
+
+Around five months after my last paper, and after a long bug hunt, it's time for the continuation of last time's results. Here we pushed our calculations of gravitational wave scattering to one order higher, which means three loops total. We found two new things in particular. Firstly, in order to match to black hole perturbation theory, we had to construct an object called a Magnusian. We already knew this, but this time, we constructed it particularly efficiently using so-called Murua coefficients. Secondly, we found integrals that corresponded to an elliptic geometry, which required some extra cleverness to solve. I'm not sure there's a physical meaning behind this, but I found it interesting nevertheless. The next stop will probably be adding spin to our calculations.
