@@ -460,6 +460,9 @@ main { padding: 3rem 0 6rem; }
 .post-content {
   font-size: 1.05rem;
 }
+.post-content p,
+.post-content ul,
+.post-content ol { max-width: none; }
 
 /* ── CV ── */
 .cv-section { margin-bottom: 2.5rem; }
@@ -521,5 +524,5 @@ main { padding: 3rem 0 6rem; }
 }
 
 /* ── KaTeX tweaks ── */
-.katex-display { max-width: var(--measure); overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
 .katex { font-size: 1.02em; }
