@@ -521,5 +521,5 @@ main { padding: 3rem 0 6rem; }
 }
 
 /* ── KaTeX tweaks ── */
-.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
+.katex-display { max-width: var(--measure); overflow-x: auto; overflow-y: hidden; padding: 0.4em 0; }
 .katex { font-size: 1.02em; }
