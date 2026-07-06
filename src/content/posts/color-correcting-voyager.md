@@ -13,9 +13,15 @@ As one can easily discover on Wikipedia, the Voyager Imaging Science System (ISS
 
 How do we perceive color and how do we make the Voyager images look similar?
 
-Let's look at what happens with the light that lets us see. First, it's emitted by the sun with a wide variety of wavelengths. This has been measured and standardized in many places, for example in ASTM G-173-03. We denote this $I(\lambda)$. Next, the light hits the object, with which it interacts in a typically very complicated way. We may parametrize this with our reflectance function $R(\lambda)$, which tells us what fraction of light at a given wavelength is reflected. Finally, the light hits the filter which records it. For us, this is the cones of our eyes, while for Voyager it goes through the optics, filter, and hits the photoconductor of the vidicon camera. We will call this $F(\lambda)$. The thing that we actually perceive, then, is the convolution of all these things:
+Let's look at what happens with the light that lets us see. First, it's emitted by the sun with a wide variety of wavelengths. This has been measured and standardized in many places, for example in ASTM G-173-03. We denote this $I(\lambda)$. In `colour`, we can call it with 
+
+```python
+sunlight = colour.plotting.SD_ASTMG173_ETR
+```
+
+Next, the light hits the object, with which it interacts in a typically very complicated way. We may parametrize this with our reflectance function $R(\lambda)$, which tells us what fraction of light at a given wavelength is reflected. Finally, the light hits the filter which records it. For us, this is the cones of our eyes, while for Voyager it goes through the optics, filter, and hits the photoconductor of the vidicon camera. We will call this $F(\lambda)$. The thing that we actually perceive, then, is the convolution of all these things:
 $$
-\int d\lambda I(\lambda) R(\lambda) I(\lambda).
+\int d\lambda \, I(\lambda) R(\lambda) F_{\text{voyager}}(\lambda).
 $$
 
 Since the illuminant and the reflectance are the same, what we need is a way to convert between the way that the Voyager camera perceives light and the way our eyes perceive light. In fact, this kind of color science is already built into digital cameras. They too have their own sensors with different sensitivities to different wavelengths compared to human eyes, so all we need to do is follow the same techniques they do.
@@ -28,6 +34,12 @@ Z = \int d\lambda \, R(\lambda) \bar{z}(\lambda),
 $$
 where $\bar{x}, \bar{y}, \bar{z}$ are the standardized colour transfer functions fundamental to human vision.
 
+In `colour`,
+```python
+cmfs = colour.MSDS_CMFS["CIE 1931 2 Degree Standard Observer"]
+XYZ = colour.sd_to_XYZ(spectrum, cmfs, sunlight)
+```
+
 To first order, let us assume that there exists a matrix $M$ such that
 $$
 XYZ = M \cdot \text{Voyager}
@@ -37,3 +49,16 @@ $$
 M=QR^T (RR^T)^{-1}.
 $$
 
+But remember, for our Jupiter pictures we don't have the human response! So how can we do this fit? The answer is to simulate it. We can generate a bunch of random "fake" spectra, compute how Voyager sees them through its camera, and simultaneously generate the human response in XYZ space. Thanks to the `colour` python package, this is actually pretty easy (but not vectorizable if you use their built-in functions :():
+
+```python
+for i in range(1000):
+    spectrum = generate_random_spectrum()
+    XYZ = colour.sd_to_XYZ(spectrum, cmfs, sunlight)
+    OGB = colour.sd_to_XYZ(spectrum, OGB_cmfs, sunlight)
+
+    Q.append(XYZ)
+    R.append(OGB)
+
+Q @ np.transpose(R) @ np.linalg.inv(R @ np.transpose(R))
+```
