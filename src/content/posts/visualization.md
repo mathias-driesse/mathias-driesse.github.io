@@ -18,7 +18,9 @@ It's a visualization of a formula that dates back to two pioneers in general rel
 
 From general relativity, we know that just like electromagnetic waves have two polarization states, so do gravitational waves. The difference is that electromagnetic waves are typically thought of as vertically or horizontally polarizated, while for gravitational waves are a bit more complicated -- the two states are "cross" and "plus".
 
-Writing it down as one optimized numba function of $x$, $y$, $z$, $t$ (the four spacetime coordinates), $m_1$ and $m_2$ (the masses of both black holes/compact objects), $b$ (the impact parameter), and $\gamma$ (the relative Lorentz factor), it's about 400 lines of python. With some quick python scripting and rough plotting with `matplotlib`, I had some ranges I thought would look good. 
+Writing it down as one optimized numba function of $x$, $y$, $z$, $t$ (the four spacetime coordinates), $m_1$ and $m_2$ (the masses of both black holes/compact objects), $b$ (the impact parameter), and $\gamma$ (the relative Lorentz factor), it's about 400 lines of python, which you can find available for download  With some quick python scripting and rough plotting with `matplotlib`, I had some ranges I thought would look good. 
+
+After some experimentation with different pieces of software, I settled on ParaView. ParaView is a phenomenal piece of software for visualizing large amounts of scientific data up to the supercomputer scale. It can slices up and transform your data however you want. 
 
 Unfortunately, ParaView doesn't natively support reading in arbitrary numpy arrays. I recommend the VTK format. You can convert it as follows:
 
@@ -43,9 +45,15 @@ for i, frame in tqdm(enumerate(frames)):
     writer.Write()
 ```
 
+
 Once you've done that, you can import the contents of the `waveform` folder as a series and it'll play back within ParaView as a movie, frame by frame (your computer might have a little trouble doing this quickly). 
 
+When you import the data into ParaView, it will not look good. That's because it's three-dimensional data, so when represented on a two-dimensional screen, parts of it will inherently block other parts. The trick is to find a visualization method that will have a large amount of transparency so that we can really see all of the object, but opaque enough so that any one part doesn't feel nebulous or vague.
 
-After some experimentation with different pieces of software, I settled on ParaView. ParaView is a phenomenal piece of software for visualizing large amounts of scientific data up to the supercomputer scale. It can slices up and transform your data however you want. 
+The trick I settled on was the equivalent of plotting contour lines in three dimensions. This is something that ParaView does beautifully because it can interpolate your data. I generated it originally with a 100 x 100 x 100 grid, which is very rough for a visualization of this quality, but ParaView makes it look beautiful and smooth. 
+
+The way I implemented this contour plot is the only bit that took an artistic flair. I implemented it by taking the rainbow color scheme and adjusting the opacity curve to look like a comb function (slightly smoothed, of course). This made certain colors particular prominent. It is slightly misleading in the sense that each new shell isn't a new wavefront, even though it looks like it.
+
+
 
 [^1]: To be precise, to use a tool called [`gwpv`](https://nilsvu.de/gwpv/), which also uses ParaView, the waveform had been projected down onto spherical harmonics, but only the first couple had been used, so the figure in the paper was actually mainly just spherical harmonics.
