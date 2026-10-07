@@ -480,6 +480,9 @@ main { padding: 3rem 0 6rem; }
 .post-content {
   font-size: 1.05rem;
 }
+.post-content p,
+.post-content ul,
+.post-content ol { max-width: none; }
 
 /* ── CV ── */
 .cv-section { margin-bottom: 2.5rem; }
