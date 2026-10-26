@@ -6,7 +6,7 @@
 @import "katex/dist/katex.min.css";
 
 :root {
-  --font-serif: "Source Serif 4", "Source Serif Pro", "Crimson Pro",
+  --font-serif: "Source Serif 4 Variable", "Source Serif 4", "Source Serif Pro", "Crimson Pro",
     "EB Garamond", Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
     Helvetica, Arial, sans-serif;

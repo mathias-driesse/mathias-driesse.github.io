@@ -7,6 +7,9 @@ import rehypeKatex from "rehype-katex";
 export default defineConfig({
   site: "https://mathias-driesse.github.io",
   integrations: [mdx(), sitemap()],
+  build: {
+    inlineStylesheets: "always",
+  },
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
